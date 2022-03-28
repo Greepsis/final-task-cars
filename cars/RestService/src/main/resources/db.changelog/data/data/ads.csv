@@ -1,0 +1,5 @@
+"ad_id","user_id","seller_name","mobile_phone","model_id","year_issue","mileage","engine_volume","engine_type","transmission","region","customs_clearance","exchange","price","publication_date","deactivated"
+"3","14","Oleg","+375332256905","26","1995","500000","1.2","Petrol","Machine","Minsk","true","true","800","2022-01-30T22:54:38.605163","false"
+"4","12","Dima","+375332071732","13","1991","700000","3.0","Petrol","Machine","Mogilev","true","true","1400","2022-02-09T20:28:48.012167","false"
+"2","12","Vadim","+375336073260","1","2019","85000","5.2","Petrol","Machine","Brest","true","true","1000","2022-02-19T23:47:39.75566","true"
+"5","12","Dru","+375293256015","11","1968","50000","5.2","Petrol","Machine","Grodno","true","true","55000","2022-02-19T23:33:17.797347","false"

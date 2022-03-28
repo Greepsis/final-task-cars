@@ -1,0 +1,20 @@
+version: '3'
+services:
+  postgres:
+    image: 'postgres:13'
+    container_name: 'java-postgres'
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      - 'POSTGRES_USER=postgres'
+      - 'POSTGRES_PASSWORD=123456789'
+      - 'POSTGRES_DB=Cars'
+
+  app:
+    build: ./
+    container_name: 'cars-app'
+    depends_on:
+      - 'java-postgres'
+    ports:
+      - "8080:8080"

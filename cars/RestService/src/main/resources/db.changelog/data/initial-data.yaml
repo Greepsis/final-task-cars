@@ -1,0 +1,215 @@
+databaseChangeLog:
+- changeSet:
+    id: 1646061439040-15
+    author: User (generated)
+    changes:
+    - loadData:
+        columns:
+        - column:
+            header: user_id
+            name: user_id
+            type: NUMERIC
+        - column:
+            header: email
+            name: email
+            type: STRING
+        - column:
+            header: password
+            name: password
+            type: STRING
+        - column:
+            header: blocking
+            name: blocking
+            type: DATE
+        - column:
+            header: deletion
+            name: deletion
+            type: DATE
+        - column:
+            header: roles
+            name: roles
+            type: STRING
+        commentLineStartsWith: '#'
+        encoding: UTF-8
+        file: data/users.csv
+        quotchar: '"'
+        separator: ','
+        relativeToChangelogFile: true
+        tableName: users
+- changeSet:
+    id: 1646061439040-13
+    author: User (generated)
+    changes:
+    - loadData:
+        columns:
+        - column:
+            header: brand_id
+            name: brand_id
+            type: NUMERIC
+        - column:
+            header: name
+            name: name
+            type: STRING
+        commentLineStartsWith: '#'
+        encoding: UTF-8
+        file: data/brand.csv
+        quotchar: '"'
+        separator: ','
+        relativeToChangelogFile: true
+        tableName: brand
+- changeSet:
+    id: 1646061439040-14
+    author: User (generated)
+    changes:
+    - loadData:
+        columns:
+        - column:
+            header: model_id
+            name: model_id
+            type: NUMERIC
+        - column:
+            header: model
+            name: model
+            type: STRING
+        - column:
+            header: brand_id
+            name: brand_id
+            type: NUMERIC
+        commentLineStartsWith: '#'
+        encoding: UTF-8
+        file: data/model.csv
+        quotchar: '"'
+        separator: ','
+        relativeToChangelogFile: true
+        tableName: model
+- changeSet:
+    id: 1646061439040-12
+    author: User (generated)
+    changes:
+    - loadData:
+        columns:
+        - column:
+            header: ad_id
+            name: ad_id
+            type: NUMERIC
+        - column:
+            header: user_id
+            name: user_id
+            type: NUMERIC
+        - column:
+            header: seller_name
+            name: seller_name
+            type: STRING
+        - column:
+            header: mobile_phone
+            name: mobile_phone
+            type: STRING
+        - column:
+            header: model_id
+            name: model_id
+            type: NUMERIC
+        - column:
+            header: year_issue
+            name: year_issue
+            type: NUMERIC
+        - column:
+            header: mileage
+            name: mileage
+            type: NUMERIC
+        - column:
+            header: engine_volume
+            name: engine_volume
+            type: NUMERIC
+        - column:
+            header: engine_type
+            name: engine_type
+            type: STRING
+        - column:
+            header: transmission
+            name: transmission
+            type: STRING
+        - column:
+            header: region
+            name: region
+            type: STRING
+        - column:
+            header: customs_clearance
+            name: customs_clearance
+            type: BOOLEAN
+        - column:
+            header: exchange
+            name: exchange
+            type: BOOLEAN
+        - column:
+            header: price
+            name: price
+            type: NUMERIC
+        - column:
+            header: publication_date
+            name: publication_date
+            type: DATE
+        - column:
+            header: deactivated
+            name: deactivated
+            type: BOOLEAN
+        commentLineStartsWith: '#'
+        encoding: UTF-8
+        file: data/ads.csv
+        quotchar: '"'
+        separator: ','
+        relativeToChangelogFile: true
+        tableName: ads
+- changeSet:
+    id: 1646061439040-4
+    author: User (generated)
+    changes:
+    - loadData:
+        columns:
+        - column:
+            header: comment_id
+            name: comment_id
+            type: NUMERIC
+        - column:
+            header: ad_id
+            name: ad_id
+            type: NUMERIC
+        - column:
+            header: user_id
+            name: user_id
+            type: NUMERIC
+        - column:
+            header: comment
+            name: comment
+            type: STRING
+        - column:
+            header: date
+            name: date
+            type: DATE
+        commentLineStartsWith: '#'
+        encoding: UTF-8
+        file: data/comments.csv
+        quotchar: '"'
+        separator: ','
+        relativeToChangelogFile: true
+        tableName: comments
+- changeSet:
+    id: 1646061439040-2
+    author: User (generated)
+    changes:
+    - loadData:
+        columns:
+        - column:
+            header: ad_id
+            name: ad_id
+            type: NUMERIC
+        - column:
+            header: user_id
+            name: user_id
+            type: NUMERIC
+        commentLineStartsWith: '#'
+        encoding: UTF-8
+        file: data/bookmarks.csv
+        quotchar: '"'
+        separator: ','
+        relativeToChangelogFile: true
+        tableName: bookmarks

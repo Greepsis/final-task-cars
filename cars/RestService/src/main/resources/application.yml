@@ -1,0 +1,40 @@
+spring:
+  session:
+    jdbc:
+      initialize-schema: always
+      table-name: SPRING_SESSION
+  liquibase:
+    enabled: true
+    change-log: classpath:db.changelog/db.changelog-cars.yaml
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://postgres:5432/Cars
+    username: postgres
+    password: 123456789
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          timezone: UTC
+  auth:
+    jwt:
+      secure_key: Hello_kEy-For:my_app-ultra-secure-and-ultra-long-secret
+      validity-in-milliseconds: 86400000
+  ad:
+    promotion:
+      promotion-in-hour: 24
+
+logging:
+    file:
+      name: logs/my.log
+    level:
+      com:
+        jm: debug
+    pattern:
+      console: '%d{yyyy-MM-dd HH:mm:ss} [%thread] %highlight(%-5level) %logger{36} - %msg%n'
+      file: '%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n'

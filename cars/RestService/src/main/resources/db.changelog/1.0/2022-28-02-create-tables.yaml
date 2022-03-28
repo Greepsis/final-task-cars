@@ -1,0 +1,360 @@
+databaseChangeLog:
+- changeSet:
+    id: 1646061439040-11
+    author: User (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: users_pkey
+            name: user_id
+            type: INTEGER
+        - column:
+            name: email
+            type: VARCHAR(50)
+        - column:
+            name: password
+            type: TEXT
+        - column:
+            name: blocking
+            type: date
+        - column:
+            name: deletion
+            type: date
+        - column:
+            name: roles
+            type: VARCHAR(50)
+        tableName: users
+- changeSet:
+    id: 1646061439040-9
+    author: User (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: brand_pkey
+            name: brand_id
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: name
+            type: VARCHAR(50)
+        tableName: brand
+- changeSet:
+    id: 1646061439040-10
+    author: User (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: model_pkey
+            name: model_id
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: model
+            type: VARCHAR(50)
+        - column:
+            constraints:
+              nullable: false
+            name: brand_id
+            type: INTEGER
+        tableName: model
+- changeSet:
+    id: 1646061439040-22
+    author: User (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: brand_id
+        baseTableName: model
+        constraintName: model_brand_id_fkey
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: CASCADE
+        onUpdate: CASCADE
+        referencedColumnNames: brand_id
+        referencedTableName: brand
+        validate: true
+- changeSet:
+    id: 1646061439040-8
+    author: User (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: ads_pkey
+            name: ad_id
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: user_id
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: seller_name
+            type: VARCHAR(50)
+        - column:
+            constraints:
+              nullable: false
+            name: mobile_phone
+            type: VARCHAR(50)
+        - column:
+            constraints:
+              nullable: false
+            name: model_id
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: year_issue
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: mileage
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: engine_volume
+            type: FLOAT8
+        - column:
+            constraints:
+              nullable: false
+            name: engine_type
+            type: VARCHAR(50)
+        - column:
+            constraints:
+              nullable: false
+            name: transmission
+            type: VARCHAR(50)
+        - column:
+            constraints:
+              nullable: false
+            name: region
+            type: VARCHAR(50)
+        - column:
+            constraints:
+              nullable: false
+            name: customs_clearance
+            type: BOOLEAN
+        - column:
+            constraints:
+              nullable: false
+            name: exchange
+            type: BOOLEAN
+        - column:
+            constraints:
+              nullable: false
+            name: price
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: publication_date
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            constraints:
+              nullable: false
+            name: deactivated
+            type: BOOLEAN
+        tableName: ads
+- changeSet:
+    id: 1646061439040-16
+    author: User (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: model_id
+        baseTableName: ads
+        constraintName: ad_model_id_fkey
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: CASCADE
+        onUpdate: CASCADE
+        referencedColumnNames: model_id
+        referencedTableName: model
+        validate: true
+- changeSet:
+    id: 1646061439040-17
+    author: User (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: user_id
+        baseTableName: ads
+        constraintName: ad_user_id_fkey
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: CASCADE
+        onUpdate: CASCADE
+        referencedColumnNames: user_id
+        referencedTableName: users
+        validate: true
+- changeSet:
+    id: 1646061439040-3
+    author: User (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: comments_pkey
+            name: comment_id
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: ad_id
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: user_id
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+            name: comment
+            type: TEXT
+        - column:
+            constraints:
+              nullable: false
+            name: date
+            type: TIMESTAMP WITHOUT TIME ZONE
+        tableName: comments
+- changeSet:
+    id: 1646061439040-6
+    author: User (generated)
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: ad_id
+        indexName: fki_comments_ad_id_fkey
+        tableName: comments
+- changeSet:
+    id: 1646061439040-7
+    author: User (generated)
+    changes:
+    - createSequence:
+        cacheSize: 1
+        cycle: false
+        dataType: bigint
+        incrementBy: 1
+        maxValue: 9223372036854775807
+        minValue: 1
+        sequenceName: hibernate_sequence
+        startValue: 1
+- changeSet:
+    id: 1646061439040-20
+    author: User (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: ad_id
+        baseTableName: comments
+        constraintName: comments_ad_id_fkey
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: ad_id
+        referencedTableName: ads
+        validate: true
+- changeSet:
+    id: 1646061439040-21
+    author: User (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: user_id
+        baseTableName: comments
+        constraintName: comments_user_id_fkey
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: CASCADE
+        onUpdate: CASCADE
+        referencedColumnNames: user_id
+        referencedTableName: users
+        validate: true
+- changeSet:
+    id: 1646061439040-1
+    author: User (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: bookmarks_pkey
+            name: ad_id
+            type: INTEGER
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: bookmarks_pkey
+            name: user_id
+            type: INTEGER
+        tableName: bookmarks
+- changeSet:
+    id: 1646061439040-5
+    author: User (generated)
+    changes:
+    - createIndex:
+        columns:
+        - column:
+            name: user_id
+        indexName: fki_bookmarks_user_id_fkey
+        tableName: bookmarks
+- changeSet:
+    id: 1646061439040-18
+    author: User (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: ad_id
+        baseTableName: bookmarks
+        constraintName: bookmarks_ad_id_fkey
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: ad_id
+        referencedTableName: ads
+        validate: true
+- changeSet:
+    id: 1646061439040-19
+    author: User (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: user_id
+        baseTableName: bookmarks
+        constraintName: bookmarks_user_id_fkey
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: CASCADE
+        onUpdate: CASCADE
+        referencedColumnNames: user_id
+        referencedTableName: users
+        validate: true
